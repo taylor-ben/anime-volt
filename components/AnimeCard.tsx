@@ -1,20 +1,21 @@
-import Image from "next/image";
+import { Anime } from '@/app/action'
+import Image from 'next/image'
 
 export interface AnimeProp {
-  id: string;
-  name: string;
+  id: string
+  name: string
   image: {
-    original: string;
-  };
-  kind: string;
-  episodes: number;
-  episodes_aired: number;
-  score: string;
+    original: string
+  }
+  kind: string
+  episodes: number
+  episodes_aired: number
+  score: string
 }
 
 interface Prop {
-  anime: AnimeProp;
-  index: number;
+  anime: Anime
+  index: number
 }
 
 function AnimeCard({ anime }: Prop) {
@@ -22,7 +23,7 @@ function AnimeCard({ anime }: Prop) {
     <div className="max-w-sm rounded relative w-full">
       <div className="relative w-full h-[37vh]">
         <Image
-          src={anime.image.original}
+          src={`https://shikimori.one/${anime.image.original}`}
           alt={anime.name}
           fill
           className="rounded-xl"
@@ -65,7 +66,7 @@ function AnimeCard({ anime }: Prop) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default AnimeCard;
+export default AnimeCard
